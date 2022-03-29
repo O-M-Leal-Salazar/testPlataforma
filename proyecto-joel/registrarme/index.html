@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Proyecto Eventos | Registro</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/checkout/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4"  style="border-radius: 15%;"src="../assets/brand/logo.png" alt="" width="72" height="72">
+      <h5>Registro </h5>
+      <p class="lead">Favor de llenar de manera correcta los siguientes datos:</p>
+    </div>
+
+    <div class="row g-5">
+        
+      <div class="col-md-12">
+        <h6 class="mb-3">Datos de contacto</h6>
+        <form class="needs-validation" novalidate>
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="firstName" placeholder="Nombre" value="" required>
+              <div class="invalid-feedback">
+                Error
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="lastName" class="form-label">Apellido</label>
+              <input type="text" class="form-control" id="lastName" placeholder="Apellido" value="" required>
+              <div class="invalid-feedback">
+                Error
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="username" class="form-label">Numero interno de empleado:</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text">#</span>
+                <input type="text" class="form-control" id="username" placeholder="Numero de empleado FIME" required>
+              <div class="invalid-feedback">
+                  Error
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="email" class="form-label">Correo <span class="text-muted">(Recomendado)</span></label>
+              <input type="email" class="form-control" id="email" placeholder="Correo">
+              <div class="invalid-feedback">
+                Please enter a valid email address for shipping updates.
+              </div>
+            </div>
+        
+            <div class="col-md-5">
+              <label for="country" class="form-label">Departamento</label>
+              <select class="form-select" id="country" required>
+                <option value="">Selecciona...</option>
+                <option>Coordinación Dirección</option>
+                <option>Coordinación Audio y video</option>
+                <option>Coordinación Diseño</option>
+                <option>Coordinación General</option>
+              </select>
+              <div class="invalid-feedback">
+                Error
+              </div>
+            </div>
+
+            <div class="col-md-4">
+             <label for="email" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="email" placeholder="Contraseña">
+              <div class="invalid-feedback">
+ Error              </div>
+            </div>
+
+            <div class="col-md-3">
+             <label for="email" class="form-label">Confirmar contraseña</label>
+              <input type="password" class="form-control" id="email" placeholder="Contraseña">
+              <div class="invalid-feedback">
+ Error              </div>
+          </div>
+
+        
+          <hr class="my-4">
+    <a href="../home/index.html" class="btn btn-outline-success" type="submit">Continuar</a>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mt-5 mb-3 text-muted">&copy; Proyecto Joel Marin</p>
+   
+  </footer>
+</div>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+      <script src="form-validation.js"></script>
+  </body>
+</html>
