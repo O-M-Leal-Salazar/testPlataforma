@@ -1,0 +1,31 @@
+Las claves asimétricas requieren que cargue un certificado para poder crearlas. Estas claves le ayudan a cifrar y descifrar los datos y a firmar digitalmente los mensajes de email.
+Las claves simétricas requieren que cree una frase de contraseña para poder usarla con la clave. Este valor de clave requiere 32 caracteres hexadecimales. Estas claves le ayudan a cifrar y descifrar los datos y a firmar digitalmente los mensajes de email.
+Las claves de vector de inicialización le ayudan a especificar el valor de 16 bits por sí mismo. También puede dejar que sea Gestión de claves quien cree los valores en su lugar. Utilice esta clave para activar las implementaciones de cifrado a nivel de campo.
+Las claves Salt usan un valor hexadecimal de más de 8 bits. El cifrado usa bits aleatorios con una contraseña o frase de contraseña para generar JWT para las actividades personalizadas de Journey Builder.
+Las claves SSH permiten la autenticación de SFTP, y también requieren que se cargue un certificado.
+Las claves de metadatos de SSO le permiten integrar una autenticación de inicio de sesión único para Marketing Cloud. Solo puede crear esta clave si su cuenta tiene habilitada la autenticación de SSO.
+
+La primera secuencia de comandos cifra el valor ExampleDate con las claves externas proporcionadas, y la segunda secuencia de comandos descifra los datos.
+%%[
+     SET @encData=EncryptSymmetric("ExampleData", "AES", "passwordExternalKey", @null, "saltExternalKey", @null, "IVExternalKey", @null)
+     SET @clearData=DecryptSymmetric(@encData, "AES", "passwordExternalKey", @null, "saltExternalKey", @null, "IVExternalKey", @null)
+]%%
+
+También puede usar claves Salt para codificar la información del token web JSON (JWT) en una actividad de Journey Builder. 
+
+Si incluye cadenas de consulta en sus páginas, no transfiera los valores SubscriberID, SubscriberKey ni ContactKey sin cifrar. Además, aplique cifrado en lugar de codificación Base64 o StringtoHex para transferir valores desde los campos. La codificación puede decodificarse fácilmente, lo que no ocurre con el cifrado.
+Cualquier procesamiento y validación de campos debe producirse en el lado del servidor. También recomendamos usar dos o más parámetros de cadena de consulta para comprobar que el mismo suscriptor está interactuando con la página antes de presentar datos.
+Las páginas de aplicación que cree requerirán autenticación. Recomendamos usar la función AMPscript MicrositeURL para cifrar los parámetros de cadena de consulta.
+Cualquier página de destino pública no autenticada o no solicitada debe incluir una cláusula global IF/THEN que compruebe si hay parámetros obligatorios vacíos. Este paso evita que se realice ningún procesamiento cuando alguien intenta acceder a la página directamente, en lugar de pasar por el flujo asignado.
+
+<script runat=server>
+   Platform.Response.SetResponseHeader("Strict-Transport-Security","max-age=200");
+   Platform.Response.SetResponseHeader("X-XSS-Protection","1; mode=block");
+   Platform.Response.SetResponseHeader("X-Frame-Options","Deny");
+   Platform.Response.SetResponseHeader("X-Content-Type-Options","nosniff");
+   Platform.Response.SetResponseHeader("Referrer-Policy","strict-origin-when-cross-origin");
+   Platform.Response.SetResponseHeader("Content-Security-Policy","default-src 'self'");
+</script>
+
+
+
