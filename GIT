@@ -1,0 +1,27 @@
+Curso de Git-hub
+Definición Rollback: Si estoy en la version 1.1 volver a la version 1.0
+
+
+Historial
+Almacenar codigo
+Trabajar en equipo 
+Cuando se introdujo un error
+
+git --version
+git config --global user.name ""
+git config --global user.email oscarls96@live.com.mx
+git config --global core.editor "code --wait"
+
+LF salto de linea
+
+ls == listar todo el directorio 
+pwd == para ver donde estoy 
+ls -a == para ver directorios ocultos
+cd .. = para regresar de directorio 
+mkdir miweb == 
+git init = iniciar un repo vacio 
+
+git rm para eliminar archivos
+git restore
+
+mv nombrearchivo nombrenuevo
