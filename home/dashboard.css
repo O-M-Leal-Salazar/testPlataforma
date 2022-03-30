@@ -188,3 +188,9 @@ body {
 .table>:not(:first-child) {
     border-top: 1px solid currentColor;
 }
+
+.bg-fime{
+
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-success-rgb),var(--bs-bg-opacity))!important;
+}
