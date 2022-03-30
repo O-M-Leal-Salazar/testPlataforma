@@ -293,11 +293,13 @@
           $currentPopover.popover('toggle');
         }
         $currentPopover = $target;
+        console.log("296·······debug");
       }).on('hidden.bs.popover', function (ev) {
         var $target = $(ev.target);
         if ($currentPopover && ($currentPopover.get(0) == $target.get(0))) {
           $currentPopover = null;
         }
+        console.log("302·······debug");
       });
     
     $.extend({
@@ -366,13 +368,16 @@
               index = +($t.attr('data-index')), 
               haspop = $t.data('popover'),
               data, time;
-              
+              console.log("371---------- chupas");
+               
           if (haspop || isNaN(index)) { return true; }
           data = options.data[index];
           time = data.start.toTimeString();
           if (time && data.end) { time = time + ' - ' + data.end.toTimeString(); }
-          $t.data('popover',true);
-          $t.popover({content: '<p><strong>' + time + '</strong></p>'+data.text, html: true, placement: 'auto left'}).popover('toggle');
+          //$t.data('popover',true);
+          //$t.popover({content: '<p>' + time + '</p>'+data.text, html: true, placement: 'auto left'}).popover('toggle');
+          document.getElementById("demo").innerHTML = '<p>' + time + '</p>'+data.text;
+          console.log("379---------- info");
           return false;
         });
         function dayAddEvent(index, event) {
@@ -523,7 +528,7 @@
         h, 
         m,
         names = ['Evento Fime Auditorio...'],
-        slipsum = ["Descripcion del evento FIME"];
+        slipsum = ["Descripcion del evento FIME", "Dia festivo"];
     
       for(i = 0; i < 500; i++) {
         j = Math.max(i % 15 - 10, 0);
@@ -547,12 +552,18 @@
       data: data
     });
     </script>
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Evento</strong> <div id="demo"></div>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    
           </div>
     
         </div>
       </div>
-
-      
 
       
       
